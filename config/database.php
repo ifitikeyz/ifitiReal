@@ -1,11 +1,11 @@
 <?php
-$databaseUrl = getenv("mysql://root:iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl@hopper.proxy.rlwy.net:32168/railway");
+$databaseUrl = getenv("mysql://root:iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl@mysql.railway.internal:3306/railway");
 $parts = parse_url($databaseUrl);
 
-$host = $parts['MYSQLHOST'];
-$port = $parts['MYSQLPORT'];
-$user = $parts['MYSQLUSER'];
-$pass = $parts['MYSQLPASSWORD'];
+$host = $parts['mysql.railway.internal'];
+$port = $parts['3306'];
+$user = $parts['root'];
+$pass = $parts['iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl'];
 $db   = ltrim($parts['path'], '/');
 
 try {
