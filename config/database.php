@@ -1,5 +1,5 @@
 <?php
-$databaseUrl = getenv("mysql://root:iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl@mysql.railway.internal:3306/railway");
+$databaseUrl = getenv("mysql://root:iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl@hopper.proxy.rlwy.net:32168/railway");
 $parts = parse_url($databaseUrl);
 
 $host = $parts['MYSQLHOST'];
