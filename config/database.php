@@ -21,9 +21,9 @@ class Database {
     private function __construct() {
         try {
             $this->connection = new PDO(
-                "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8",
-                DB_USER,
-                DB_PASS,
+                "mysql: $host, $db, charset=utf8",
+                $user,
+                $pass,
                 [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
