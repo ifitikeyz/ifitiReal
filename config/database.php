@@ -1,5 +1,5 @@
 <?php
-$databaseUrl = ${{ MySQL.MYSQL_URL }};
+$databaseUrl = ${{ MySQL.mysql:/root:iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl@mysql.railway.internal:3306/railway }};
 $parts = parse_url($databaseUrl);
 
 $host = $parts['host'];
