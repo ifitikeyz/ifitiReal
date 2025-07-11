@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Make Payment</title>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="overflow: hidden; text-align: center;" >
+<br>
+<br>
+<br>
+<br>
+
+  <h2>Pay N1000 for registration</h2>
+  
+
+  <form id="paymentForm">
+    <input type="email" id="email" placeholder="Your Email" required><br><br>
+    <button type="submit">Pay Now</button>
+  </form>
+
+  <script>
+    const paymentForm = document.getElementById('paymentForm');
+    paymentForm.addEventListener("submit", payWithPaystack, false);
+
+    function payWithPaystack(e) {
+      e.preventDefault();
+
+      let handler = PaystackPop.setup({
+        key: 'pk_live_980292ab6f300e2506e21274798b27d9a5c46105', // Replace with your PUBLIC key
+        email: document.getElementById("email").value,
+        amount: 1000 * 100, // Amount in kobo
+        currency: "NGN",
+        callback: function(response) {
+          window.location.href = "register.php";
+        },
+        onClose: function() {
+        
+        },
+      });
+
+      handler.openIframe();
+    }
+  </script>
+
+</body>
+</html>
