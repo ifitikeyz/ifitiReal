@@ -6,7 +6,7 @@
 define('DB_HOST', 'mysql.railway.internal');
 define('DB_NAME', 'railway');
 define('DB_USER', 'root');
-define('DB_PASS', 'uwWLbJkLDWowhfiiRzJjBLHTFOJbflMJ');
+define('DB_PASS', 'iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl');
 
 class Database {
     private static $instance = null;
