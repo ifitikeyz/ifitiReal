@@ -2,17 +2,11 @@
 /**
  * Database Configuration for ifiti Real Estate
  */
-// Get the DATABASE_URL from the environment
-$databaseUrl = getenv("mysql://root:iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl@hopper.proxy.rlwy.net:32168/railway");
 
-// Parse the URL
-$parts = parse_url($databaseUrl);
-
-$host = $parts['mysql.railway.internal'];
-$user = $parts['root'];
-$pass = $parts['iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl'];
-$db   = ltrim($parts['railway'], '/');
-
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'ifiti');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 
 class Database {
     private static $instance = null;
@@ -21,9 +15,9 @@ class Database {
     private function __construct() {
         try {
             $this->connection = new PDO(
-                "mysql: $host, $db, charset=utf8",
-                $user,
-                $pass,
+                "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8",
+                DB_USER,
+                DB_PASS,
                 [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
