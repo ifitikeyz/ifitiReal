@@ -2,11 +2,17 @@
 /**
  * Database Configuration for ifiti Real Estate
  */
+// Get the DATABASE_URL from the environment
+$databaseUrl = getenv("mysql://root:iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl@hopper.proxy.rlwy.net:32168/railway");
 
-define('DB_HOST', 'mysql.railway.internal');
-define('DB_NAME', 'railway');
-define('DB_USER', 'root');
-define('DB_PASS', 'iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl');
+// Parse the URL
+$parts = parse_url($databaseUrl);
+
+$host = $parts['mysql.railway.internal'];
+$user = $parts['root'];
+$pass = $parts['iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl'];
+$db   = ltrim($parts['railway'], '/');
+
 
 class Database {
     private static $instance = null;
