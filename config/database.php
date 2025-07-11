@@ -2,10 +2,10 @@
 $databaseUrl = getenv("DATABASE_URL");
 $parts = parse_url($databaseUrl);
 
-$host = $parts['host'];
-$port = $parts['port'];
-$user = $parts['user'];
-$pass = $parts['pass'];
+$host = $parts['MYSQLHOST'];
+$port = $parts['MYSQLPORT'];
+$user = $parts['MYSQLUSER'];
+$pass = $parts['MYSQLPASSWORD'];
 $db   = ltrim($parts['path'], '/');
 
 try {
