@@ -2,11 +2,11 @@
 $databaseUrl = "MySQL.root:iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl@mysql.railway.internal:3306/railway";
 $parts = parse_url($databaseUrl);
 
-$host = $parts['host'];
-$port = $parts['port'];
-$user = $parts['user'];
-$pass = $parts['pass'];
-$db   = ltrim($parts['path'], '/');
+$host = $parts['mysql.railway.internal'];
+$port = $parts['3306'];
+$user = $parts['root'];
+$pass = $parts['iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl'];
+$db   = ltrim($parts['railway'], '/');
 
 // Create PDO connection
 try {
