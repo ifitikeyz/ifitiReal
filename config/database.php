@@ -1,5 +1,5 @@
 <?php
-$databaseUrl = getenv("mysql://root:iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl@mysql.railway.internal:3306/railway");
+$databaseUrl = getenv("${{ MySQL.MYSQL_URL }}");
 $parts = parse_url($databaseUrl);
 
 $host = $parts['mysql.railway.internal'];
