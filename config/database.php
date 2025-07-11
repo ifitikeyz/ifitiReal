@@ -1,18 +1,19 @@
 <?php
-$databaseUrl = getenv("${{ MySQL.MYSQL_URL }}");
+$databaseUrl = ${{ MySQL.MYSQL_URL }};
 $parts = parse_url($databaseUrl);
 
-$host = $parts['mysql.railway.internal'];
-$port = $parts['3306'];
-$user = $parts['root'];
-$pass = $parts['iWoBGfGiJZQUbjGoExNLVMUymoNJNwvl'];
+$host = $parts['host'];
+$port = $parts['port'];
+$user = $parts['user'];
+$pass = $parts['pass'];
 $db   = ltrim($parts['path'], '/');
 
+// Create PDO connection
 try {
     $pdo = new PDO("mysql:host=$host;port=$port;dbname=$db", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected to MySQL on Railway!";
+    echo "Connected to MySQL via Railway!";
 } catch (PDOException $e) {
-    echo "Database connection failed: " . $e->getMessage();
+    echo "Connection failed: " . $e->getMessage();
 }
 ?>
